@@ -21,8 +21,16 @@
 例えば以下のようなコードで標準入力を受け取ることができる。(入力を終了するには `ctrl + D` を二回押下する。)
 
 ```js
-const main = (input) => {
-  console.log(` → "${input}" が入力されました。`);
+const main = (stdin) => {
+  console.log(` → "${stdin}" が入力されました。`);
+
+  // 空白区切りの一行での入力 a, b を受け取る(空白 " " で文字列を split)
+  const [a, b] = stdin.split(" ");
+  // a, b を数値型として受け取る場合
+  const [a, b] = stdin.split(" ").map(x => Number(x));
+
+  // 入力を複数行受け取って配列にする(改行コード "\n" で文字列を split)
+  const inputs = stdin.split("\n");
 }
 
 main(require("fs").readFileSync("/dev/stdin", "utf8"));
