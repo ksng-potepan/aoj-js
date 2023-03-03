@@ -5,7 +5,7 @@ TEST_FILE=src/$(PROBLEM)/main.test.js
 
 file:
 	@[ -n "$(PROBLEM)" ] || { echo 'PROBLEM が指定されていません'; exit 1; }
-	@mkdir -p src/$(PROBLEM) && touch $(FILE)
+	@mkdir -p src/$(PROBLEM) && cp templates/main.js $(FILE)
 
 run:
 	@[ -n "$(PROBLEM)" ] || { echo 'PROBLEM が指定されていません'; exit 1; }
