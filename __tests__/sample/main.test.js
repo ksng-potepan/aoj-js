@@ -1,6 +1,6 @@
 // テストフラグを立てる
 isTest = true;
-const main = require("./main");
+const main = require("../../src/sample/main");
 
 // 単一のテストケースを実行する場合の記述例
 describe("単一テストケース: 与えられた整数を 3 乗して返す。", () => {

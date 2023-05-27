@@ -29,4 +29,4 @@ test:
 	@npx jest $(TEST_FILE_PATH)
 
 sample-test:
-	@npx jest sample/main.test.js
+	@npx jest __tests__/sample/main.test.js
