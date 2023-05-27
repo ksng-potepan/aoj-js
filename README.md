@@ -9,8 +9,11 @@
 
 1. 画面上部の `ターミナル` から `新しいターミナル` または再度コマンドパレットを開き、`Terminal: Create New Terminal` を実行 (以下で出てくる make コマンドは開いたターミナルで実行する)
 1. `make file PROBLEM=<問題>` で解答用のファイルを作成する (例: ITP1 1_B を解く場合 `make file PROBLEM=ITP1/1_B`)
-1. src/ 以下に問題番号のディレクトリとその直下に解答用ファイルの main.js が作成されているので、そこにコードを書いていく
+   1. デフォルトでは main.js という名称のファイルが作成される
+   1. 別解を用意する等でファイル名を main.js 以外にしたい場合は `FILE=<作成したいファイル名>` も追加する。指定するのは拡張子 `.js` より前の部分。 (例: `make file PROBLEM=ITP1/1_B FILE=main2` を実行すると main2.js が作成される)
+1. src/ 以下に問題番号のディレクトリとその直下に解答用ファイル (上で `FILE` を指定しなかった場合は main.js) が作成されているので、そこにコードを書いていく
 1. `make run PROBLEM=<問題>` でファイルを実行する
+   1. main.js 以外のファイルを実行したい場合は上と同じく `FILE` も指定する
 1. `shift + alt(⌥) + F` または `make fmt PROBLEM=<問題>` でファイルを整形できるので、まめに行っておく
 1. 期待する動作になれば AOJ にコピペして提出する
 1. AOJ での実行結果が `AC` であった場合は git に commit & push する
@@ -113,9 +116,11 @@ main();
 
 ## jest でのテスト
 
-* `make test-file PROBLEM=<問題>` でテスト用ファイル (`main.test.js`) が作成される
+* `make test-file PROBLEM=<問題>` でテスト用ファイルが作成される
   * 先に `make file PROBLEM=<問題>` で解答用ファイルが作成されている必要がある
   * 作成される場所は解答用ファイルと同階層
+  * デフォルトでは main.test.js という名称のファイルが作成される
+  * 解答用ファイルを main.js 以外の名称で作成した場合は、こちらでも `FILE` を指定する (例: 解答用ファイルを `make file PROBLEM=ITP1/1_B FILE=main2` のようにして作成した場合は、`make test-file PROBLEM=ITP1/1_B FILE=main2` を実行する)
 * `make sample-test` でサンプルとして用意したテストを実行できる
 * 参考資料
   * [公式ドキュメント](https://jestjs.io/ja/docs/getting-started)
