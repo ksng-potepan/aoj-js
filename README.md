@@ -117,8 +117,6 @@ main();
 ## jest でのテスト
 
 * `make test-file PROBLEM=<問題>` でテスト用ファイルが作成される
-  * 先に `make file PROBLEM=<問題>` で解答用ファイルが作成されている必要がある
-  * 作成される場所は解答用ファイルと同階層
   * デフォルトでは main.test.js という名称のファイルが作成される
   * 解答用ファイルを main.js 以外の名称で作成した場合は、こちらでも `FILE` を指定する (例: 解答用ファイルを `make file PROBLEM=ITP1/1_B FILE=main2` のようにして作成した場合は、`make test-file PROBLEM=ITP1/1_B FILE=main2` を実行する)
 * `make sample-test` でサンプルとして用意したテストを実行できる

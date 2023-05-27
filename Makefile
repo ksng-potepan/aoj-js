@@ -2,7 +2,7 @@ ROME:=npx rome
 PROBLEM=
 FILE=main
 FILE_PATH=src/$(PROBLEM)/$(FILE).js
-TEST_FILE_PATH=src/$(PROBLEM)/$(FILE).test.js
+TEST_FILE_PATH=__tests__/$(PROBLEM)/$(FILE).test.js
 
 file:
 	@[ -n "$(PROBLEM)" ] || { echo 'PROBLEM が指定されていません'; exit 1; }
@@ -22,7 +22,7 @@ fmt:
 
 test-file:
 	@[ -n "$(PROBLEM)" ] || { echo 'PROBLEM が指定されていません'; exit 1; }
-	@cp templates/main.test.js $(TEST_FILE_PATH)
+	@mkdir -p __tests__/$(PROBLEM) && cp templates/main.test.js $(TEST_FILE_PATH)
 
 test:
 	@[ -n "$(PROBLEM)" ] || { echo 'PROBLEM が指定されていません'; exit 1; }
