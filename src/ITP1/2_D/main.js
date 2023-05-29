@@ -1,11 +1,11 @@
 const main = (stdin) => {
-  const s = parseInt(stdin);
+  const [W, H, x, y, r] = stdin.split(" ").map((x) => Number(x));
 
-  const hour = Math.floor(s / 3600);
-  const min = Math.floor((s % 3600) / 60);
-  const sec = s % 60;
-
-  return `${hour}:${min}:${sec}`;
+  if (0 <= x - r && x + r <= W && 0 <= y - r && y + r <= H) {
+    return "Yes";
+  } else {
+    return "No";
+  }
 };
 
 if (typeof isTest === "undefined" || !isTest) {

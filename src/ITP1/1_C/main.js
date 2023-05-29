@@ -1,12 +1,17 @@
-const main = (input) => {
-	const inputArr = input.split(" ");
-	const height = Number(inputArr[0]);
-	const width = Number(inputArr[1]);
+const main = (stdin) => {
+	const [a, b] = stdin.split(" ").map(x =>
+Number(x));
 
-	const area = height * width;
-	const length = (height + width) * 2;
+  const area = a * b;
 
-	console.log(`${area} ${length}`);
+  const length = (a + b) * 2;
+
+  return (`${area} ${length}`);
 };
 
-main(require("fs").readFileSync("/dev/stdin", "utf8"));
+if (typeof isTest === "undefined" || !isTest) {
+  // テストフラグが立っていない場合は標準入力から出力まで実行
+  console.log(main(require("fs").readFileSync("/dev/stdin", "utf8")));
+}
+
+module.exports = main;
