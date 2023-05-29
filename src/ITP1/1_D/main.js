@@ -1,11 +1,16 @@
-const main = (input) => {
-  const second = parseInt(input);
+const main = (stdin) => {
+  const s = parseInt(stdin);
 
-  const hour = Math.floor(second / 3600);
-  const min = Math.floor((second % 3600) / 60);
-  const sec = second % 60;
+  const hour = Math.floor(s / 3600);
+  const min = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
 
-  console.log(`${hour}:${min}:${sec}`);
+  return `${hour}:${min}:${sec}`;
 };
 
-main(require("fs").readFileSync("/dev/stdin", "utf8"));
+if (typeof isTest === "undefined" || !isTest) {
+  // テストフラグが立っていない場合は標準入力から出力まで実行
+  console.log(main(require("fs").readFileSync("/dev/stdin", "utf8")));
+}
+
+module.exports = main;
