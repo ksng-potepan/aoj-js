@@ -1,17 +1,16 @@
-const main = (input) => {
-  const inputArr = input.split(" ");
-  const W = Number(inputArr[0]);
-  const H = Number(inputArr[1]);
-  const x = Number(inputArr[2]);
-  const y = Number(inputArr[3]);
-  const r = Number(inputArr[4]);
+const main = (stdin) => {
+  const [W, H, x, y, r] = stdin.split(" ").map((x) => Number(x));
 
-  if (0 <= x - r && x + r <= W && 0 <= y - r && y + r <= H){
-    console.log('Yes');
+  if (0 <= x - r && x + r <= W && 0 <= y - r && y + r <= H) {
+    return "Yes";
   } else {
-    console.log('No');
+    return "No";
   }
+};
 
+if (typeof isTest === "undefined" || !isTest) {
+  // テストフラグが立っていない場合は標準入力から出力まで実行
+  console.log(main(require("fs").readFileSync("/dev/stdin", "utf8")));
 }
 
-main(require("fs").readFileSync("/dev/stdin", "utf8"));
+module.exports = main;
